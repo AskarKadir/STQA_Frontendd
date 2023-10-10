@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 class TeleponController {
   final String UrlAPI = 'http://10.0.2.2:8000/api';
-
+  /// fungsi untuk validasi nomer telepon
   Future<bool> validateTelepon(String telepon) async {
     final response =
         await http.get(Uri.parse('$UrlAPI/telepon/search?telepon=$telepon'));

@@ -7,6 +7,7 @@ import '../model/email_model.dart';
 class EmailController {
   final String UrlAPI = 'http://10.0.2.2:8000/api';
 
+  /// memvalidasi email
   Future<bool> validateEmail(String email) async {
     final response =
         await http.get(Uri.parse('$UrlAPI/email/search?email=$email'));

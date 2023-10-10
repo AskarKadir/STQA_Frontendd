@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 class UsernameController {
   final String UrlAPI = 'http://10.0.2.2:8000/api';
-
+  /// fungsi untuk validasi username
   Future<bool> validateUsername(String username) async {
     final response =
         await http.get(Uri.parse('$UrlAPI/username/search?username=$username'));

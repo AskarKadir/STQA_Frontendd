@@ -5,11 +5,13 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+
 class AuthController {
   final String UrlAPI = 'http://10.0.2.2:8000/api';
   final String is_email = '@';
   final firebase = FirebaseFirestore.instance;
 
+  /// fungsi login
   Future<bool> login(String email, String password) async {
     if (email.contains(is_email)) {
       var result = await http.post(
@@ -22,7 +24,7 @@ class AuthController {
         });
         return true;
       } else {
-        // throw Exception('Gagal Mengirim Data!');
+        /// throw Exception('Gagal Mengirim Data!');
         return false;
       }
     } else {
@@ -36,7 +38,7 @@ class AuthController {
         });
         return true;
       } else {
-        // throw Exception('Gagal Mengirim Data!');
+        /// throw Exception('Gagal Mengirim Data!');
         return false;
       }
     }

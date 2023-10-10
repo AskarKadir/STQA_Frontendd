@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 class OrderController {
   final String UrlAPI = 'http://10.0.2.2:8000/api';
-
+  /// fungsi mengirim pesanan ke database
   Future<bool?> storeOrder(String token, String menu_id, String jumlah,
       String total, String status, String user_id) async {
     final request = await http.post(
@@ -18,7 +18,7 @@ class OrderController {
       return false;
     }
   }
-
+  /// fungsi update orderan ke database
   Future<bool?> updateOrder(String token, String id, String menu_id,
       String jumlah, String status) async {
     final request = await http.put(
@@ -32,7 +32,7 @@ class OrderController {
       return false;
     }
   }
-
+  /// fungsi untuk menghapus orderan di database
   Future<bool?> deleteOrder(String token, String id) async {
     final request = await http.delete(Uri.parse('$UrlAPI/order/$id'),
         headers: {HttpHeaders.authorizationHeader: 'Bearer $token'});

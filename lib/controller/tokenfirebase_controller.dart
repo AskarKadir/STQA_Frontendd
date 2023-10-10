@@ -11,7 +11,7 @@ class TokenFirebaseController {
       StreamController<List<DocumentSnapshot>>.broadcast();
 
   Stream<List<DocumentSnapshot>> get stream => _streamController.stream;
-
+  /// mengirim token api ke firebase
   Future getTokenFirebase(String email) async {
     final result = await db.doc(email).get();
     _streamController.sink.add([result]);
@@ -20,7 +20,7 @@ class TokenFirebaseController {
     return tokenFirebaseModel.token;
   }
 
-  // remove token firebase
+  /// remove token firebase
   Future<bool> removeTokenFirebase(String email) async {
     final db = FirebaseFirestore.instance;
     var result = await db.collection('token').doc(email).delete();

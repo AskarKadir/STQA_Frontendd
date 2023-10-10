@@ -6,11 +6,11 @@ import 'package:http/http.dart' as http;
 
 class MenuMakananController {
   final UrlAPI = "http://10.0.2.2:8000/api";
-
+  /// fungsi untuk mengambil data semua menu
   Future<List<MenuModel>> getAllMenu(token) async {
     var result = await http.get(Uri.parse("${UrlAPI}/menu"),
         headers: {HttpHeaders.authorizationHeader: 'Bearer $token'});
-
+    /// jika berhasil akan menampilkan menu
     if (result.statusCode == 200) {
       var data = json.decode(result.body);
       List<MenuModel> menu = [];
